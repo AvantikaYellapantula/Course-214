@@ -67,4 +67,49 @@ building boolean
 ```
 enum BOOLEAN = {TRUE=1, FALSE=0};
 ```
+***RECITATION***
+
+
+**Review of C**
+
+- Basic C syntax
+
+	- Variables
+	
+	- initialization of variables: type identifier = initial_value;
+	
+	- Preprocessor definitions
+		- When would I use this?
+**using #define**
+
+	- 4 operators
+	
+		- Assignment -> ``` '=' ```
+		
+		- Arithmetic -> ``` '+,-,*/,%' ```
+		
+		- Compound Assignment -> ``` '+=, -=, *=, /=, %=' ```
+		
+	
+
+- Header files
+	- ``` #include<stdio.h> ```
+	
+	- ``` #include<xx.h> ``` vs ``` #include "xx.h" ```
+	
+		- ``` <xx.h> ``` is already in C lib
+		
+		- ``` "xx.h" ``` is user-defined file
+- Loops/Conditionals
+	- for loops
+		- initialization, condition, increment
+	- while loop
+	- if else condition
+	- switch condition
+- GCC compilation
+	- ``` -o vs -s vs -c ``` (for assembly)
+	- ``` gcc xx.c -o xx.out ```
+	- ``` ./xx.out ```
+
+
 
