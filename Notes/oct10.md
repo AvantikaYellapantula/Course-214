@@ -38,44 +38,28 @@ SP --> heap (for e.g)
 Compiling (Stages):
 
 **preprocessor**
-  
   - goes through and executes your code
-  
   - goes through .h files and creates the environment for your code
-  
   - defines, macros,...performed on code (text replacement)
-  
   - typedefs, enums, struct defs, prototypes,...loaded into environment
   
 **compiler**
   
   - typechecking and scanning (enforce grammar rules)
-  
-  - make code ready to convert to assembly (pick locations for vars)
-  
+  - make code ready to convert to assembly (pick locations for vars
   - generate assembly
   
 **assembler**
-  
   - generate machine code from assembly
     
- **linker**
- 
-    - static linking (not dynamic linking)
-    
+**linker**
+    - static linking (not dynamic linking)    
     - load binaries that are not defined in source, but are referred to into text segment (check link above)
-    
     - Dynamic linking -> at runtime it locates the libraries
-    
     - Static linking -> linked at compile time
-    
     - gcc -c aLibrary.c -> aLibrary.o
-    
     - gcc mymain.c aLibrary.o -> a.out (including runable code from mymain that references executable code from aLibrary.o)
         
-    
-    
- //check out CS211 - bk
  ```C
  //stack
  int array[4];
