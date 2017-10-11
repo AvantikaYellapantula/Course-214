@@ -53,14 +53,26 @@ Compiling (Stages):
   - generate machine code from assembly
     
 **linker**
-    - static linking (not dynamic linking)    
-    - load binaries that are not defined in source, but are referred to into text segment (check link above)
-    - Dynamic linking -> at runtime it locates the libraries
-    - Static linking -> linked at compile time
-    - gcc -c aLibrary.c -> aLibrary.o
-    - gcc mymain.c aLibrary.o -> a.out (including runable code from mymain that references executable code from aLibrary.o)
-        
- ```C
+  - static linking (not dynamic linking)    
+  - load binaries that are not defined in source, but are referred to into text segment (check link above)
+  - Dynamic linking -> at runtime it locates the libraries
+  - Static linking -> linked at compile time
+  
+```
+gcc -c aLibrary.c -> aLibrary.o
+gcc mymain.c aLibrary.o -> a.out (including runable code from mymain that references executable code from aLibrary.o)
+>./a.out
+```
+
+a.out <-- program
+
+OS's representation of running code in memory <-- process
+
+source code reference to code (i.e printf()) <--- function
+
+A function is a source code construct
+
+```C
  //stack
  int array[4];
  int array[] = {1, 2, 3, 4};
