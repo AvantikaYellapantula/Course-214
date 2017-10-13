@@ -54,4 +54,13 @@ p = &x;	//initialized pointer
 *p = 0;	//set x to 0
 (*p)++;	//increments what p points to (x)
 ```
+**Summarizing Notes:**
 
+	- Arrays always index from zero—end of story.
+	- There are no multidimensional arrays; you use arrays of arrays instead.
+	- Pointers point to things; pointers to different types are themselves different types.
+		- They have nothing in common with each other or any other types in C; there are no automatic conversions between pointers and other types.
+	- Pointers can be used to simulate ‘call by reference’ to functions, but it takes a little work to do it.
+	- Incrementing or adding something to a pointer can be used to step along arrays.
+	- To facilitate array access by incrementing pointers, the Standard guarantees that in an n element array, although element n does not exist, use of its address is not an error—the valid range of addresses for an array declared as int ar[N] is &ar[0] through to &ar[N]. 
+		- You must not try to access this last pseudo-element.
