@@ -55,8 +55,8 @@ In the above example, the individual members of v1 are initialized to suitable v
 
 The only operation permitted on whole structures is assignment
 
-	- they can be assigned to each other
-	- they can be passed as arguments to functions and returned by functions
+- they can be assigned to each other
+- they can be passed as arguments to functions and returned by functions
 
 But this is not efficient practice. It is smarter to manipulate pointers to structures instead
 
