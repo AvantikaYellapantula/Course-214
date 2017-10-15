@@ -1,5 +1,7 @@
 ***Dynamic Memory Allocation***
 
+[Recall:](http://static.duartes.org/img/blogPosts/linuxFlexibleAddressSpaceLayout.png)
+
 A dynamic memory allocator maintains an area of a process's virtual memory known as the *heap*
 
 Details vary from system to system, but WLOG, one can assume that the heap is an area of demand-zero memory that begins immediately after the uninitialized data area and grows upward, i.e., toward higher addresses
