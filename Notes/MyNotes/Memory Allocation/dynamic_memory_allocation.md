@@ -17,3 +17,4 @@ There are two types of allocators:
 	- The process of automatically freeing unused allocated blocks is known as garbage collection
 	- e.g:Lisp, ML, Java rely on garbage collection to free allocated blocks
 	
+This time, we will focus on explicit allocators only:
