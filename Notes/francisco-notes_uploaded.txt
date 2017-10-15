@@ -1,0 +1,407 @@
+- Lecture0:--
+1700-1820
+Tuesday/Thursday
+TIL-232
+
+- Instructor: --
+John-Austen Francisco
+Email: deymious@gmail.com
+Office hours: Tuesday/Thursday 1500-1600, Hill 361
+
+emailmeatdeymiousatyahoo.com@rutgers.edu
+
+emacs
+vi
+
+10011
+
+int
+float
+char -> 'a'  '\n'  '\0'
+
+"string" -> hello\0
+**************************************************************
+//Lecture1
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+int main (int argc, char * argv[] )
+{
+
+	return 0;
+}
+
+
+"string": null-terminated array of chars
+boolean: 0 ~ "false"
+				1 ~ "true"
+
+int someTruth = 5;
+				
+while( someTruth )
+{
+
+}
+
+
+struct - group of vars given one name
+
+struct <name> {
+|<type0> <var0>|;
+....
+|<typeN> <varN>|;
+};
+
+
+struct point {
+	int x;
+	int y;
+};
+
+
+<type> <name> = <value>;
+
+
+struct point Alocation = {2, 3};
+
+Alocation.x 
+
+struct point OtherLocation = NULL;
+
+OtherLocation.y = 12;
+
+struct rectangle {
+	struct point upperLeftCorner;
+	struct point lowerRightCorner;
+};
+
+
+struct rectangle someRectangle = {  {2,3}, {1, 5} };
+
+x						y
+--------------------|-----------------------|
+
+
+union somestuff {
+	float thing0;
+	int stuff0;
+	char metoo;
+};
+
+|---------------------------------|
+
+234.123.5.2
+
+struct: at least the sum of the sizes of its components
+union:: at least the size of the largest component
+
+typedef point
+struct _point {
+	int x;
+	int y;
+};
+
+typedef <new type name> <new type definition/type>;
+typedef volume int;
+
+volume cylinder = 12;
+******************************************************************************
+//Lecture2
+"memory oriented"
+
+types:
+  structs
+	- one new named type that consists of multiple other types
+	- size? -> at least <- the sum of the size of its components	
+whence size? sizeof() !
+
+char - 1 byte
+sizeof(short) <= sizeof(int) <= sizeof(long)
+
+
+	unions
+	- one block of memory for all members
+	- size is at least size of largest type
+	- changing any one member will change all
+	
+101001010
+  |	
+	       |
+                  |	
+	
+
+
+"3+3"
+3+3*3+3
+
+CUP
+PINT
+QUART
+GALLON
+enum volumes = {CUP=1,  PINT=2, QUART=4, GALLON=16};
+enum volumes jug = CUP;
+enum boolean = {TRUE=1, FALSE=0};
+********************************************************************
+//Lecture3
+
+typedef <definition of type> <type name>
+
+enum colors {RED, GREEN, BLUE}
+
+
+int main(int argc, char *argv[])
+
+0 10010101
+1  00100101
+2
+3
+4
+5
+
+|
+V
+
+function( struct memoryHog reallyBig)
+{
+
+}
+
+|
+V
+
+function( struct memoryHog * reallyBig)
+{
+
+}
+
+type:
+	length
+	method of parsing bits
+int ~ 4bytes
+char ==1byte
+
+int a = 12;
+char b = 'c';
+
+0 1011001
+1  1010010
+2  100101
+3  101001
+4  10101
+
+******************************************************************
+//Lecture4
+
+~=
+"
+((Asst0/maxPtsAsst0 + ...+  AsstNmaxPtsAsstN) * weightAsst) + ....
+"
+-----
+pointers:
+
+int a = 12;
+int * ptr = &a;
+
+typedef
+struct _STUFF
+{
+	char * data[ ];
+	struct _STUFF *  next;
+}
+aNode;
+aNode * headNode = .....
+
+(*headNode).next "==" headNode->next
+int error = 0;
+char * newString = (char*)malloc(10*sizeof(char));
+if( newString == NULL)
+{
+	printf("Fatal Error: Could not allocate memory for stuff! Oh Noes!\n");
+	error = -1;
+}
+.
+.
+.
+if( error < 0 )
+{
+	return -1;
+}
+
+int * somePtr = (int*)malloc(sizeof(int));
+free(somePtr);
+
+int* fn()
+{
+	int a = 12;
+	int * somePtr = &a;
+	return somePtr;
+}
+int* fn()
+{
+	int * somePtr = (int*)malloc(sizeof(int));
+	*somePtr = 12;
+	*somePtr = NULL;	
+	return somePtr;
+}
+..
+free(returnedPtr);
+
+*******************************************************************
+//Lecture5
+
+cat input.file | ./sorter -c  movie_title
+pipe output of one cmd to stdin of another:
+   | more 
+redirect output:
+    > filename
+redirect output with append:
+  >> filename
+
+printf( "%d", name );  
+scanf("%d", name);
+abcdeF0000000000
+
+cat input.file | ./sorter -c  movie_title      > sortedmovies.csv
+ls -alF
+*********************************************************************
+//Lecture6
+
+char allOfMemory[2^10];
+
+void *malloc(uint size)
+{
+		
+
+			ALLOC * allocation = (ALLOC*)allOfMemory;
+
+			ALLOC->capacity = size;
+			ALLOC->free = 0;
+			
+			return (void*) (allocation+sizeof(ALLOC)) ;
+}
+
+1001110011010
+typedef
+struct _ALLOC
+{
+	uint capacity
+	ushort free
+}
+ALLOC;
+
+&
+|
+<<
+>>
+"
+struct metadata
+{
+	filename
+	filesize
+	mode (bit)
+	permissions
+	date created
+		first block
+		second block
+		...
+		Nth block
+		first indirection block
+		second indirection block
+		first double indirect block
+}
+"
+****************************************************************
+//Lecture7
+
+memory: (implementation)
+malloc
+realloc
+calloc
+
+file systems: (implementation)
+i-nodes:
+10 pointers
+
+char*
+char**
+char***
+
+10 pointers:
+7 direct-mapped
+2 single-indirection
+1 double-indirection
+
+10101
+
+dynamic number: segmentation
+fixed-sized things: paging
+
+segmented paging
+
+---
+
+Process: OS' abstraction for running code
+
+pid: 2
+int i = 2;
+fork()
+char a = 'a';
+exec("./somebinary");
+
+pid:3
+int i = 2;
+fork()
+char a = 'a';
+exec("./somebinary");
+
+
+int pid = fork();
+if(pid == 0)
+{
+	exec("./somebinary");
+}
+************************************************************************
+//Lecture8
+
+int a = 2;
+int * p = &a;
+p = p+1;
+printf("%X\n", p);
+&a ... 0x100201AF
+
+0x100201B0
+short <= int <= long
+char = 1
+---
+"union"
+long c = 2;
+int * p = (int*)&c;
+char * q = (char*)&c;
+---
+int pid = fork();
+if( pid == 0)
+{
+	exec("./newcode");
+}
+
+wait( ) ... wait for child process to be done running
+
+Zombie process - process that is done running, no executable code, whose parent has not yet waited on it
+Orphan process - a process whose parent no longer is in the system
+Zombie orphan - process that is done running, no executable code, who has no parent to wait on it
+pid
+ppid
+Init - pid 0
+(unforked)
+
+Exceptional computation:
+	Exceptions: instructions that can not be run
+	Interrupts: stop computation for something important (events)
+	Trap: voluntarily give up control of computation - and have the OS run some of its code on your behalf
+				(i.e. "system call")
+Signals:
+	software interrupts that may be caused by hardware or software events
+char array[] = "anA";	
+write(STDOUT, array, 4)
+
