@@ -23,7 +23,7 @@ Explicit allocators must operate within some rather stringent constraints
 
 Note that peak utilization over the first k+1 requests, denoted by U_k is given by (in latex form):
 
-U_k = \frac{max_(i\geq k)P_i}{H_k}
+U_k = \frac{max_(i\leq k)P_i}{H_k}
 
 U_k = [max_(i=<k) P_i]/[H_k]
 
